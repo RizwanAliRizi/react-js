@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   }
 });
 
-function Home() {
+function Home(props) {
   const classes = useStyles();
 
   return(
@@ -44,7 +44,11 @@ function Home() {
           </div>
         </div>
         <CardActions>
-          <Button size="small" className={classes.button}>Add to Cart</Button>
+          <Button
+           size="small"
+           className={classes.button}
+           onClick={() => props.addToCartHandler({price: 1000, name: 'iphoneX'})}
+          >Add to Cart</Button>
         </CardActions>
       </CardContent>
     </Card>
