@@ -6,7 +6,8 @@ import
   CardContent,
   CardActions,
   Button,
-  CardHeader
+  CardHeader,
+  Chip
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -24,6 +25,12 @@ const useStyles = makeStyles({
   },
   button: {
     background: '#ccc',
+  },
+  counter: {
+    color: 'red',
+  },
+  cardActions: {
+    justifyContent: 'space-between'
   }
 });
 
@@ -43,12 +50,13 @@ function Home(props) {
             <span>$500</span>
           </div>
         </div>
-        <CardActions>
+        <CardActions className={classes.cardActions}>
           <Button
            size="small"
            className={classes.button}
            onClick={() => props.addToCartHandler({price: 1000, name: 'iphoneX'})}
           >Add to Cart</Button>
+          <Chip label={props.cartData.length ? props.cartData.length : 0} className={classes.counter} />
         </CardActions>
       </CardContent>
     </Card>
