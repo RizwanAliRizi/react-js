@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Person from './Person/Person'
 import 
 { 
   Card,
@@ -63,7 +62,6 @@ function Home(props) {
           </CardActions>
         </CardContent>
       </Card>
-     <Person name="Max" age="25"> My hobbies are: Racing </Person>
     </Grid>
   );
 }
