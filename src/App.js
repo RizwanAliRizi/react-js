@@ -13,9 +13,9 @@ const App = () => {
     { name: 'Manu', age: 24 }
   ])
 
-  const switchNameHandler = () => {
+  const switchNameHandler = (newName) => {
     setPersons([
-      { name: "Maxmillian", age: 27 },
+      { name: newName, age: 27 },
       { name: 'Manu', age: 20 }
     ])
   }
@@ -25,8 +25,8 @@ const App = () => {
       <h1>App Component</h1>
       <HomeContainer />
       <div style={{marginTop: '15px'}}>
-        <Button variant="outlined" color="primary" onClick={switchNameHandler}>Switch name </Button>
-        <Person name={persons[0].name} age={persons[0].age}> My hobbies are: Racing </Person>
+        <Button variant="outlined" color="primary" onClick={switchNameHandler.bind(this, 'Maxmillian')}>Switch name </Button>
+        <Person name={persons[0].name} age={persons[0].age} click={() =>  switchNameHandler('Max!')}> My hobbies are: Racing </Person>
         <Person name={persons[1].name} age={persons[1].age} />
       </div>
     </div>
