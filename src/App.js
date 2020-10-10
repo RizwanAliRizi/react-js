@@ -20,14 +20,20 @@ const App = () => {
     ])
   }
 
+  const nameChangeHandler = (event) => {
+    setPersons([
+      { name: event.target.value, age: 27 },
+      { name: 'Manu', age: 20 }
+    ])
+  }
+
   return (
     <div className="App">
       <h1>App Component</h1>
       <HomeContainer />
       <div style={{marginTop: '15px'}}>
         <Button variant="outlined" color="primary" onClick={switchNameHandler.bind(this, 'Maxmillian')}>Switch name </Button>
-        <Person name={persons[0].name} age={persons[0].age} click={() =>  switchNameHandler('Max!')}> My hobbies are: Racing </Person>
-        <Person name={persons[1].name} age={persons[1].age} />
+        <Person name={persons[0].name} age={persons[0].age} click={() =>  switchNameHandler('Max!')} changed={nameChangeHandler}> My hobbies are: Racing </Person>
       </div>
     </div>
   );
