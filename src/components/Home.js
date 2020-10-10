@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Person from './Person/Person'
 import 
 { 
   Card,
@@ -7,7 +8,8 @@ import
   CardActions,
   Button,
   CardHeader,
-  Chip
+  Chip,
+  Grid
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -38,28 +40,31 @@ function Home(props) {
   const classes = useStyles();
 
   return(
-    <Card className={classes.root}>
-      <CardContent>
-        <CardHeader title="Home Component" className={classes.title} />
-        <div className='cart-wrapper'>
-          <div className="img-wrapper item">
-            <img src="https://www.esquireme.com/public/styles/full_img/public/images/2019/09/19/iPhone-11-Pro-Max-Dubai-Review-(2).jpg?itok=vo6NFfyV" alt="" className={classes.img} />
+    <Grid container className={classes.root}>
+      <Card>
+        <CardContent>
+          <CardHeader title="Home Component" className={classes.title} />
+          <div className='cart-wrapper'>
+            <div className="img-wrapper item">
+              <img src="https://www.esquireme.com/public/styles/full_img/public/images/2019/09/19/iPhone-11-Pro-Max-Dubai-Review-(2).jpg?itok=vo6NFfyV" alt="" className={classes.img} />
+            </div>
+            <div className="text-wrapper item">
+              <span> I phone </span>
+              <span>$500</span>
+            </div>
           </div>
-          <div className="text-wrapper item">
-            <span> I phone </span>
-            <span>$500</span>
-          </div>
-        </div>
-        <CardActions className={classes.cardActions}>
-          <Button
-           size="small"
-           className={classes.button}
-           onClick={() => props.addToCartHandler({price: 1000, name: 'iphoneX'})}
-          >Add to Cart</Button>
-          <Chip label={props.cartData.length ? props.cartData.length : 0} className={classes.counter} />
-        </CardActions>
-      </CardContent>
-    </Card>
+          <CardActions className={classes.cardActions}>
+            <Button
+             size="small"
+             className={classes.button}
+             onClick={() => props.addToCartHandler({price: 1000, name: 'iphoneX'})}
+            >Add to Cart</Button>
+            <Chip label={props.cartData.length ? props.cartData.length : 0} className={classes.counter} />
+          </CardActions>
+        </CardContent>
+      </Card>
+     <Person name="Max" age="25"> My hobbies are: Racing </Person>
+    </Grid>
   );
 }
 
